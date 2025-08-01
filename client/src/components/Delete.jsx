@@ -26,6 +26,7 @@ const fetchStudents = async () => {
 const deleteStudents = async (id) => {
     try {
       setStudentsId(id);
+      alert('Are you sure you want to delete this student?');
       await axios.delete(`http://localhost:5001/api/students/${id}`);
       setStudents(students.filter((b) => b._id !== id));
     } catch (err) {
@@ -85,7 +86,7 @@ const deleteStudents = async (id) => {
                 <div className="flex items-start justify-between">
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                      {students.FirstName || 'Service'}
+                      {students.FirstName || 'N/A'}
                     </h3>
                     <p className="text-sm text-gray-500 mb-4">
                       studunt email: {students.Email || 'N/A'}

@@ -23,9 +23,10 @@ const [error, setError] = useState('');
     setError('');
     try {
       const res = await axios.post('http://localhost:5001/api/students', form);
-      
+      alert('Student added successfully!');
     } catch (err) {
       setError(err.response?.data?.message || 'Failed to add student. Please try again later.');
+      
     }
   };
 
@@ -36,12 +37,12 @@ const [error, setError] = useState('');
  
         <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
           <div className="max-w-md mx-auto mt-10 p-6 border rounded shadow-md bg-white">
-            <h2 className="text-2xl font-semibold mb-4 text-center">Login</h2>
+            <h2 className="text-2xl font-semibold mb-4 text-center">Add Students</h2>
             <form  className="space-y-4">
               <input
                 type="text"
-                name="FisrtName"
-                placeholder="FisrtName"
+                name="FirstName"
+                placeholder="FirstName"
                 value={form.FirstName}
                 onChange={handleChange}
                 className="w-full p-2 border rounded"
@@ -76,7 +77,7 @@ const [error, setError] = useState('');
               />
               <input
                 type="date"
-                name="date"
+                name="Birthdate"
                 placeholder="Birthdate"
                 value={form.Birthdate}
                 onChange={handleChange}
